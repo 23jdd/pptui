@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Deck FontFamily="Calibri" EastAsianFontFamily="Microsoft YaHei">
+  <Meta Title="产品发布路线图" Author="产品与交付团队"/>
+  <Theme>
+    <Color Key="accent1" Value="#2563EB"/>
+    <Color Key="accent2" Value="#0EA5E9"/>
+  </Theme>
+  <Styles>
+    <Style Key="eyebrow" FontSize="12" FontWeight="Bold" Foreground="@accent2" LetterSpacing="2"/>
+    <Style Key="h1" FontSize="38" FontWeight="Bold" Foreground="@dk1" FontFamily="Cambria"/>
+    <Style Key="h2" FontSize="19" FontWeight="Bold" Foreground="@dk1"/>
+    <Style Key="body" FontSize="15" Foreground="@dk2" LineHeight="24"/>
+    <Style Key="caption" FontSize="12" Foreground="#6B7A90"/>
+  </Styles>
+
+  <Slide Background="@dk1" Notes="开场：这次只讲节奏，不讲功能清单。">
+    <Canvas>
+      <Ellipse Canvas.Left="10.4in" Canvas.Top="-2.2in" Width="5.4in" Height="5.4in" Fill="#22356B"/>
+      <TextBlock Canvas.Left="0.9in" Canvas.Top="1.5in" Width="8in" Style="eyebrow">PRODUCT LAUNCH · 2027</TextBlock>
+      <TextBlock Canvas.Left="0.9in" Canvas.Top="2.1in" Width="9.4in"
+                 FontFamily="Cambria" FontSize="50" FontWeight="Bold" Foreground="@lt1" LineHeight="64">把路线图<LineBreak/>变成发布节奏</TextBlock>
+      <TextBlock Canvas.Left="0.9in" Canvas.Top="4.4in" Width="8in"
+                 FontSize="18" Foreground="#B9C7E6">产品与交付团队 · 2026.11</TextBlock>
+      <TextBlock Canvas.Left="0.9in" Canvas.Top="6.5in" Width="6in"
+                 FontSize="12" Foreground="#7F93BF">内部讨论稿</TextBlock>
+    </Canvas>
+  </Slide>
+
+  <Slide Notes="三步是串行的，内测不通过就不进入灰度。">
+    <Border Padding="0.7in">
+      <DockPanel>
+        <StackPanel DockPanel.Dock="Top" Spacing="0.08in" Margin="0 0 0 0.45in">
+          <TextBlock Style="eyebrow">ROADMAP</TextBlock>
+          <TextBlock Style="h1">三步走</TextBlock>
+        </StackPanel>
+
+        <TextBlock DockPanel.Dock="Bottom" Style="caption" Margin="0 0.25in 0 0">里程碑以双周为粒度滚动更新</TextBlock>
+
+        <Grid>
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+          </Grid.ColumnDefinitions>
+
+          <Border Grid.Column="0" Margin="0 0 0.26in 0"
+                  Padding="0.3in" Background="@lt2" RadiusX="0.12in">
+            <StackPanel Spacing="0.12in" VerticalAlignment="Center">
+              <TextBlock FontSize="26" FontWeight="Bold" Foreground="@accent1">01</TextBlock>
+              <TextBlock Style="h2">内测</TextBlock>
+              <TextBlock Style="body">12 月完成种子客户内测，收敛三个核心场景。</TextBlock>
+              <TextBlock Style="caption">12.01 - 12.31</TextBlock>
+            </StackPanel>
+          </Border>
+
+          <Border Grid.Column="1" Margin="0 0 0.26in 0"
+                  Padding="0.3in" Background="@lt2" RadiusX="0.12in">
+            <StackPanel Spacing="0.12in" VerticalAlignment="Center">
+              <TextBlock FontSize="26" FontWeight="Bold" Foreground="@accent1">02</TextBlock>
+              <TextBlock Style="h2">灰度</TextBlock>
+              <TextBlock Style="body">按行业分批放量，每批观察两周留存与工单。</TextBlock>
+              <TextBlock Style="caption">01.01 - 02.15</TextBlock>
+            </StackPanel>
+          </Border>
+
+          <Border Grid.Column="2"
+                  Padding="0.3in" Background="@lt2" RadiusX="0.12in">
+            <StackPanel Spacing="0.12in" VerticalAlignment="Center">
+              <TextBlock FontSize="26" FontWeight="Bold" Foreground="@accent1">03</TextBlock>
+              <TextBlock Style="h2">全量</TextBlock>
+              <TextBlock Style="body">发布窗口锁定 3 月，配套迁移工具与文档同步上线。</TextBlock>
+              <TextBlock Style="caption">03.01 起</TextBlock>
+            </StackPanel>
+          </Border>
+        </Grid>
+      </DockPanel>
+    </Border>
+  </Slide>
+
+  <Slide Notes="表格回答谁在什么时候交付什么；右边是风险。">
+    <Border Padding="0.7in">
+      <Grid>
+        <Grid.RowDefinitions>
+          <RowDefinition Height="Auto"/>
+          <RowDefinition Height="*"/>
+          <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="1.3*"/>
+          <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Row="0" Grid.ColumnSpan="2" Spacing="0.08in" Margin="0 0 0 0.4in">
+          <TextBlock Style="eyebrow">DELIVERY</TextBlock>
+          <TextBlock Style="h1">交付节奏与风险</TextBlock>
+        </StackPanel>
+
+        <Table Grid.Row="1" Grid.Column="0" Margin="0 0 0.4in 0.2in"
+               BorderBrush="@lt2" BorderThickness="1pt" CellPadding="0.11in" FontSize="14">
+          <Table.Columns>
+            <Column Width="1.6*"/>
+            <Column Width="1.4*"/>
+            <Column Width="1.1*"/>
+            <Column Width="1*"/>
+          </Table.Columns>
+          <Row Height="0.5in">
+            <Cell Background="@dk1" Foreground="@lt1" FontWeight="Bold">阶段</Cell>
+            <Cell Background="@dk1" Foreground="@lt1" FontWeight="Bold">时间</Cell>
+            <Cell Background="@dk1" Foreground="@lt1" FontWeight="Bold">负责人</Cell>
+            <Cell Background="@dk1" Foreground="@lt1" FontWeight="Bold">状态</Cell>
+          </Row>
+          <Row Height="0.55in">
+            <Cell FontWeight="Bold">需求冻结</Cell>
+            <Cell>11 月</Cell>
+            <Cell>苏禾</Cell>
+            <Cell Foreground="@accent1">已完成</Cell>
+          </Row>
+          <Row Height="0.55in">
+            <Cell FontWeight="Bold">种子内测</Cell>
+            <Cell>12 月</Cell>
+            <Cell>陈默</Cell>
+            <Cell Foreground="@accent1">进行中</Cell>
+          </Row>
+          <Row Height="0.55in">
+            <Cell FontWeight="Bold">行业灰度</Cell>
+            <Cell>1-2 月</Cell>
+            <Cell>林可</Cell>
+            <Cell Foreground="@accent1">待启动</Cell>
+          </Row>
+          <Row Height="0.55in">
+            <Cell FontWeight="Bold">全量发布</Cell>
+            <Cell>3 月</Cell>
+            <Cell>周航</Cell>
+            <Cell>规划中</Cell>
+          </Row>
+        </Table>
+
+        <StackPanel Grid.Row="1" Grid.Column="1" Spacing="0.3in">
+          <StackPanel Spacing="0.16in">
+            <TextBlock FontSize="16" FontWeight="Bold" Foreground="@dk1">三个已知风险</TextBlock>
+            <List Bullet="Disc" FontSize="14" Foreground="@dk2" ItemSpacing="8pt" Indent="0.26in">
+              <Item>数据迁移工具依赖第三方 SDK，许可证未确认</Item>
+              <Item>灰度客户集中在两个行业，样本偏差</Item>
+              <Item>文档与培训材料只有一名负责人</Item>
+            </List>
+          </StackPanel>
+
+          <Border Background="@lt2" RadiusX="0.1in" Padding="0.22in">
+            <TextBlock FontSize="13" Foreground="@dk2">每个风险都有对应的 owner 和截止日，周会只跟红黄项。</TextBlock>
+          </Border>
+        </StackPanel>
+
+        <Border Grid.Row="2" Grid.ColumnSpan="2" Background="@lt2" RadiusX="0.1in" Padding="0.2in 0.26in">
+          <TextBlock FontSize="13" Foreground="@dk2">关键路径：需求冻结 → 种子内测 → 行业灰度 → 全量发布；每个节点都有明确的退出标准。</TextBlock>
+        </Border>
+      </Grid>
+    </Border>
+  </Slide>
+
+  <Slide Notes="指标页用来看趋势，不追求精确到个位。">
+    <Border Padding="0.7in">
+      <Grid>
+        <Grid.RowDefinitions>
+          <RowDefinition Height="Auto"/>
+          <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="1.1*"/>
+          <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Row="0" Grid.ColumnSpan="2" Spacing="0.08in" Margin="0 0 0 0.4in">
+          <TextBlock Style="eyebrow">METRICS</TextBlock>
+          <TextBlock Style="h1">发布后的三个观察点</TextBlock>
+        </StackPanel>
+
+        <Chart Grid.Row="1" Grid.Column="0" Margin="0 0 0.45in 0" Type="Line"
+               Title="周活跃客户（家）" Legend="Bottom" FontSize="12">
+          <Category>W1</Category>
+          <Category>W2</Category>
+          <Category>W3</Category>
+          <Category>W4</Category>
+          <Category>W5</Category>
+          <Category>W6</Category>
+          <Series Name="灰度" Color="@accent2">12,26,38,55,61,70</Series>
+          <Series Name="全量" Color="@accent1">0,0,2,9,24,48</Series>
+        </Chart>
+
+        <StackPanel Grid.Row="1" Grid.Column="1" Spacing="0.42in" VerticalAlignment="Center">
+          <StackPanel Spacing="0.06in">
+            <TextBlock FontFamily="Cambria" FontSize="46" FontWeight="Bold" Foreground="@accent1">70</TextBlock>
+            <TextBlock FontSize="13" Foreground="@dk2">灰度期末活跃客户</TextBlock>
+          </StackPanel>
+          <StackPanel Spacing="0.06in">
+            <TextBlock FontFamily="Cambria" FontSize="46" FontWeight="Bold" Foreground="@accent1">+48</TextBlock>
+            <TextBlock FontSize="13" Foreground="@dk2">全量首月新增</TextBlock>
+          </StackPanel>
+          <StackPanel Spacing="0.06in">
+            <TextBlock FontFamily="Cambria" FontSize="46" FontWeight="Bold" Foreground="@accent1">2.4%</TextBlock>
+            <TextBlock FontSize="13" Foreground="@dk2">周流失率，低于目标线</TextBlock>
+          </StackPanel>
+        </StackPanel>
+      </Grid>
+    </Border>
+  </Slide>
+
+  <Slide Background="@dk1">
+    <Canvas>
+      <TextBlock Canvas.Left="0.9in" Canvas.Top="2.6in" Width="8in"
+                 FontFamily="Cambria" FontSize="50" FontWeight="Bold" Foreground="@lt1">下一步</TextBlock>
+      <TextBlock Canvas.Left="0.9in" Canvas.Top="3.7in" Width="9in"
+                 FontSize="17" Foreground="#B9C7E6">12 月 5 日前确认内测名单，12 月 8 日开启动员会。</TextBlock>
+      <TextBlock Canvas.Left="0.9in" Canvas.Top="6.4in" Width="8in"
+                 FontSize="12" Foreground="#7F93BF">产品与交付团队 · 2026.11</TextBlock>
+    </Canvas>
+  </Slide>
+</Deck>

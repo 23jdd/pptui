@@ -1,0 +1,275 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Deck FontFamily="Calibri" EastAsianFontFamily="Microsoft YaHei">
+  <Meta
+      Title="2026 年度经营分析"
+      Author="数据平台团队"
+      Subject="年度复盘与 2027 规划"
+      Keywords="经营分析,营收,增长"/>
+
+  <Styles>
+    <Style Key="eyebrow" FontSize="12" FontWeight="Bold" Foreground="@accent2" LetterSpacing="2"/>
+    <Style Key="h1" FontSize="40" FontWeight="Bold" Foreground="@dk1" FontFamily="Cambria"/>
+    <Style Key="h2" FontSize="20" FontWeight="Bold" Foreground="@dk1"/>
+    <Style Key="body" FontSize="15" Foreground="@dk2" LineHeight="24"/>
+    <Style Key="caption" FontSize="12" Foreground="#6B7A90"/>
+  </Styles>
+
+  <Slide Background="@dk1" Notes="开场 30 秒：先给结论，再展开三个判断。">
+    <Canvas>
+      <Ellipse Canvas.Left="10.1in" Canvas.Top="-1.9in" Width="5.6in" Height="5.6in" Fill="#22356B"/>
+      <Ellipse Canvas.Left="11.7in" Canvas.Top="4.5in" Width="3.4in" Height="3.4in" Fill="#1B2A57"/>
+
+      <TextBlock Canvas.Left="0.9in" Canvas.Top="1.45in" Width="8in" Style="eyebrow">ANNUAL REVIEW · FY2026</TextBlock>
+      <TextBlock Canvas.Left="0.9in" Canvas.Top="2.05in" Width="8.8in"
+                 FontFamily="Cambria" FontSize="54" FontWeight="Bold" Foreground="@lt1" LineHeight="68">把增长做厚<LineBreak/>把效率做实</TextBlock>
+      <TextBlock Canvas.Left="0.9in" Canvas.Top="4.45in" Width="8.4in"
+                 FontSize="19" Foreground="#B9C7E6">2026 年度经营分析 · 数据平台团队</TextBlock>
+      <TextBlock Canvas.Left="0.9in" Canvas.Top="6.55in" Width="6in"
+                 FontSize="12" Foreground="#7F93BF">2026.11 · 内部资料，请勿外传</TextBlock>
+    </Canvas>
+  </Slide>
+
+  <Slide Notes="三个判断是全年复盘的骨架，后面的图表和表格都挂在这三条上。">
+    <Border Padding="0.7in">
+      <Grid>
+        <Grid.RowDefinitions>
+          <RowDefinition Height="Auto"/>
+          <RowDefinition Height="Auto"/>
+          <RowDefinition Height="*"/>
+          <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="*"/>
+          <ColumnDefinition Width="*"/>
+          <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Row="0" Grid.ColumnSpan="3" Spacing="0.1in" Margin="0 0 0 0.5in">
+          <TextBlock Style="eyebrow">EXECUTIVE SUMMARY</TextBlock>
+          <TextBlock Style="h1">三个判断</TextBlock>
+        </StackPanel>
+
+        <Border Grid.Row="1" Grid.Column="0" Margin="0 0 0.28in 0" Height="3.3in" Padding="0.34in" Background="@lt2" RadiusX="0.14in">
+          <Grid>
+            <Grid.RowDefinitions>
+              <RowDefinition Height="Auto"/>
+              <RowDefinition Height="*"/>
+              <RowDefinition Height="Auto"/>
+              <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0" FontSize="30" FontWeight="Bold" Foreground="@accent1">01</TextBlock>
+            <TextBlock Grid.Row="2" Style="h2" Margin="0 0 0 0.14in">需求侧回暖</TextBlock>
+            <TextBlock Grid.Row="3" Style="body" Height="1.05in">企业服务预算同比 +18%，但决策链条更短，交付周期成为第一竞争要素。</TextBlock>
+          </Grid>
+        </Border>
+
+        <Border Grid.Row="1" Grid.Column="1" Margin="0 0 0.28in 0" Height="3.3in" Padding="0.34in" Background="@lt2" RadiusX="0.14in">
+          <Grid>
+            <Grid.RowDefinitions>
+              <RowDefinition Height="Auto"/>
+              <RowDefinition Height="*"/>
+              <RowDefinition Height="Auto"/>
+              <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0" FontSize="30" FontWeight="Bold" Foreground="@accent1">02</TextBlock>
+            <TextBlock Grid.Row="2" Style="h2" Margin="0 0 0 0.14in">结构在换挡</TextBlock>
+            <TextBlock Grid.Row="3" Style="body" Height="1.05in">直销占比回升至 42%，数据产品增速 31%，渠道依赖度连续四个季度下降。</TextBlock>
+          </Grid>
+        </Border>
+
+        <Border Grid.Row="1" Grid.Column="2" Height="3.3in" Padding="0.34in" Background="@lt2" RadiusX="0.14in">
+          <Grid>
+            <Grid.RowDefinitions>
+              <RowDefinition Height="Auto"/>
+              <RowDefinition Height="*"/>
+              <RowDefinition Height="Auto"/>
+              <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0" FontSize="30" FontWeight="Bold" Foreground="@accent1">03</TextBlock>
+            <TextBlock Grid.Row="2" Style="h2" Margin="0 0 0 0.14in">效率是变量</TextBlock>
+            <TextBlock Grid.Row="3" Style="body" Height="1.05in">交付人效提升 3.2 倍，但项目毛利被定制化侵蚀，标准化率只有 46%。</TextBlock>
+          </Grid>
+        </Border>
+
+        <Border Grid.Row="3" Grid.ColumnSpan="3" Background="@lt2" RadiusX="0.1in" Padding="0.24in 0.3in">
+          <TextBlock FontSize="15" Foreground="@dk2">一句话结论：增长来自结构换挡，风险来自定制化交付。</TextBlock>
+        </Border>
+      </Grid>
+    </Border>
+  </Slide>
+
+  <Slide Notes="强调实际值在 10 月后与目标重新拉开差距。">
+    <Border Padding="0.7in">
+      <Grid>
+        <Grid.RowDefinitions>
+          <RowDefinition Height="Auto"/>
+          <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="1.15*"/>
+          <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Row="0" Grid.ColumnSpan="2" Spacing="0.1in" Margin="0 0 0 0.4in">
+          <TextBlock Style="eyebrow">REVENUE MIX</TextBlock>
+          <TextBlock Style="h1">收入结构正在换挡</TextBlock>
+        </StackPanel>
+
+        <Chart Grid.Row="1" Grid.Column="0" Margin="0 0 0.4in 0" Type="Column"
+               Title="月度营收（万元）" Legend="Bottom" FontSize="12">
+          <Category>7月</Category>
+          <Category>8月</Category>
+          <Category>9月</Category>
+          <Category>10月</Category>
+          <Category>11月</Category>
+          <Category>12月</Category>
+          <Series Name="目标" Color="@lt2">860,900,940,980,1020,1060</Series>
+          <Series Name="实际" Color="@accent1">905,932,918,1005,1088,1142</Series>
+        </Chart>
+
+        <Grid Grid.Row="1" Grid.Column="1" Margin="0.12in 0 0 0">
+          <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+          </Grid.RowDefinitions>
+
+          <StackPanel Grid.Row="0" Spacing="0.2in">
+            <TextBlock FontSize="17" FontWeight="Bold" Foreground="@dk1">三个结构性变化</TextBlock>
+            <List Bullet="Disc" FontSize="15" Foreground="@dk2" ItemSpacing="10pt" Indent="0.28in">
+              <Item>直销收入占比回升至 42%，客单价同比提升 21%</Item>
+              <Item>数据产品连续四个季度增速超过 30%</Item>
+              <Item>渠道收入占比降至 18%，为近三年最低</Item>
+            </List>
+            <TextBlock Style="caption" Margin="0 0.1in 0 0">数据口径：确认收入，含税，单位万元。</TextBlock>
+          </StackPanel>
+
+          <Border Grid.Row="2" Background="@lt2" RadiusX="0.12in" Padding="0.26in">
+            <StackPanel Spacing="0.06in">
+              <TextBlock FontSize="12" Foreground="@dk2">12 月实际完成</TextBlock>
+              <TextBlock FontFamily="Cambria" FontSize="34" FontWeight="Bold" Foreground="@accent1">1,142 万元</TextBlock>
+              <TextBlock FontSize="13" Foreground="@dk2">超目标 7.7% · 全年目标完成率 101.2%</TextBlock>
+            </StackPanel>
+          </Border>
+        </Grid>
+      </Grid>
+    </Border>
+  </Slide>
+
+  <Slide Notes="表格用来回答“谁在贡献增长”。">
+    <Border Padding="0.7in">
+      <Grid>
+        <Grid.RowDefinitions>
+          <RowDefinition Height="Auto"/>
+          <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Spacing="0.1in" Margin="0 0 0 0.4in">
+          <TextBlock Style="eyebrow">BY BUSINESS UNIT</TextBlock>
+          <TextBlock Style="h1">各业务线表现</TextBlock>
+        </StackPanel>
+
+        <Table Grid.Row="1" BorderBrush="@lt2" BorderThickness="1pt" CellPadding="0.12in" FontSize="15" VerticalAlignment="Top">
+          <Table.Columns>
+            <Column Width="2.6*"/>
+            <Column Width="1.3*"/>
+            <Column Width="1.1*"/>
+            <Column Width="1.1*"/>
+            <Column Width="1.2*"/>
+          </Table.Columns>
+
+          <Row Height="0.62in">
+            <Cell Background="@dk1" Foreground="@lt1" FontWeight="Bold">业务线</Cell>
+            <Cell Background="@dk1" Foreground="@lt1" FontWeight="Bold" TextAlignment="Right">收入（万元）</Cell>
+            <Cell Background="@dk1" Foreground="@lt1" FontWeight="Bold" TextAlignment="Right">同比</Cell>
+            <Cell Background="@dk1" Foreground="@lt1" FontWeight="Bold" TextAlignment="Right">毛利率</Cell>
+            <Cell Background="@dk1" Foreground="@lt1" FontWeight="Bold">负责人</Cell>
+          </Row>
+
+          <Row Height="0.68in">
+            <Cell FontWeight="Bold">企业服务</Cell>
+            <Cell TextAlignment="Right">4,280</Cell>
+            <Cell TextAlignment="Right">+24%</Cell>
+            <Cell TextAlignment="Right">38.2%</Cell>
+            <Cell>陈默</Cell>
+          </Row>
+          <Row Height="0.68in">
+            <Cell FontWeight="Bold">数据产品</Cell>
+            <Cell TextAlignment="Right">2,960</Cell>
+            <Cell TextAlignment="Right">+31%</Cell>
+            <Cell TextAlignment="Right">52.6%</Cell>
+            <Cell>林可</Cell>
+          </Row>
+          <Row Height="0.68in">
+            <Cell FontWeight="Bold">渠道分销</Cell>
+            <Cell TextAlignment="Right">1,840</Cell>
+            <Cell TextAlignment="Right">+9%</Cell>
+            <Cell TextAlignment="Right">26.4%</Cell>
+            <Cell>周航</Cell>
+          </Row>
+          <Row Height="0.68in">
+            <Cell FontWeight="Bold">生态合作</Cell>
+            <Cell TextAlignment="Right">980</Cell>
+            <Cell TextAlignment="Right">+46%</Cell>
+            <Cell TextAlignment="Right">31.8%</Cell>
+            <Cell>苏禾</Cell>
+          </Row>
+          <Row Height="0.72in">
+            <Cell Background="@lt2" FontWeight="Bold">合计</Cell>
+            <Cell Background="@lt2" FontWeight="Bold" TextAlignment="Right">10,060</Cell>
+            <Cell Background="@lt2" FontWeight="Bold" TextAlignment="Right">+26%</Cell>
+            <Cell Background="@lt2" FontWeight="Bold" TextAlignment="Right">39.7%</Cell>
+            <Cell Background="@lt2" Foreground="@dk2">—</Cell>
+          </Row>
+        </Table>
+      </Grid>
+    </Border>
+  </Slide>
+
+  <Slide Background="@dk1" Notes="用三个数字收束，再转到结论。">
+    <Border Padding="0.9in">
+      <Grid>
+        <Grid.RowDefinitions>
+          <RowDefinition Height="Auto"/>
+          <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="*"/>
+          <ColumnDefinition Width="*"/>
+          <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Row="0" Grid.ColumnSpan="3" Spacing="0.1in" Margin="0 0 0 0.6in">
+          <TextBlock Style="eyebrow">KEY METRICS</TextBlock>
+          <TextBlock Style="h1" Foreground="@lt1">关键指标</TextBlock>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Grid.Column="0" Spacing="0.1in" VerticalAlignment="Center">
+          <TextBlock FontFamily="Cambria" FontSize="60" FontWeight="Bold" Foreground="@accent2">42%</TextBlock>
+          <TextBlock FontSize="14" Foreground="#8FA3C8">直销收入占比</TextBlock>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Grid.Column="1" Spacing="0.1in" VerticalAlignment="Center">
+          <TextBlock FontFamily="Cambria" FontSize="60" FontWeight="Bold" Foreground="@accent2">+18.4%</TextBlock>
+          <TextBlock FontSize="14" Foreground="#8FA3C8">付费转化率提升</TextBlock>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Grid.Column="2" Spacing="0.1in" VerticalAlignment="Center">
+          <TextBlock FontFamily="Cambria" FontSize="60" FontWeight="Bold" Foreground="@accent2">3.2x</TextBlock>
+          <TextBlock FontSize="14" Foreground="#8FA3C8">交付人效提升</TextBlock>
+        </StackPanel>
+      </Grid>
+    </Border>
+  </Slide>
+
+  <Slide Background="@dk1">
+    <Canvas>
+      <TextBlock Canvas.Left="0.9in" Canvas.Top="2.55in" Width="8in"
+                 FontFamily="Cambria" FontSize="52" FontWeight="Bold" Foreground="@lt1">谢谢</TextBlock>
+      <TextBlock Canvas.Left="0.9in" Canvas.Top="3.65in" Width="8in"
+                 FontSize="18" Foreground="#B9C7E6">2027 规划将在 12 月 15 日前同步至各业务线。</TextBlock>
+      <TextBlock Canvas.Left="0.9in" Canvas.Top="6.4in" Width="8in"
+                 FontSize="12" Foreground="#7F93BF">数据平台团队 · data-platform@example.com</TextBlock>
+    </Canvas>
+  </Slide>
+</Deck>

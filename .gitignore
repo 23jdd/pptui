@@ -1,0 +1,8 @@
+.venv
+.idea
+__pycache__/
+*.pyc
+out/
+*.pptx
+!pptui/templates/*.pptx
+internal_docs

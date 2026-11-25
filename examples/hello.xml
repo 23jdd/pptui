@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Deck FontFamily="Calibri" EastAsianFontFamily="Microsoft YaHei">
+  <Meta Title="Hello pptui" Author="pptui"/>
+
+  <Slide Background="@lt1">
+    <Border Padding="0.9in">
+      <StackPanel Spacing="0.18in">
+        <TextBlock FontSize="46" FontWeight="Bold" Foreground="@dk1" FontFamily="Cambria">Hello, pptui</TextBlock>
+        <TextBlock FontSize="18" Foreground="@dk2">XML in, PowerPoint out. WPF-style layout, real OOXML.</TextBlock>
+        <TextBlock FontSize="13" Foreground="@accent1">Canvas · StackPanel · Grid · Border · TextBlock · List</TextBlock>
+      </StackPanel>
+    </Border>
+  </Slide>
+</Deck>
