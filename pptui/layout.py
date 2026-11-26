@@ -49,9 +49,17 @@ class LayoutEngine:
         prepare(el)
         margin = el.margin
         inner = Size(_sub(avail.w, margin.horizontal), _sub(avail.h, margin.vertical))
-        content = self._measure_content(el, inner)
-        width = self._size(el.width, inner.w, content.w)
-        height = self._size(el.height, inner.h, content.h)
+        # An explicit Width/Height constrains the content as well: a 1in-wide
+        # TextBlock must wrap at 1in, not at whatever width the parent offered.
+        given_w = self._size(el.width, inner.w, None)
+        given_h = self._size(el.height, inner.h, None)
+        content_avail = Size(
+            inner.w if given_w is None else min(inner.w, given_w),
+            inner.h if given_h is None else min(inner.h, given_h),
+        )
+        content = self._measure_content(el, content_avail)
+        width = content.w if given_w is None else given_w
+        height = content.h if given_h is None else given_h
         width = self._clamp(width, el.min_width, el.max_width, inner.w)
         height = self._clamp(height, el.min_height, el.max_height, inner.h)
         el.measured = Size(int(width), int(height))
@@ -105,7 +113,16 @@ class LayoutEngine:
         line_height = _float_or_none(el.get("LineHeight"))
         pad = el.padding
         inner_w = max(1, avail_w - pad.horizontal) if avail_w < INF else avail_w
-        size = measure_runs(el.runs, inner_w, self.metrics, wrap=wrap, line_height_pt=line_height)
+        stats = {}
+        size = measure_runs(
+            el.runs, inner_w, self.metrics, wrap=wrap,
+            line_height_pt=line_height, stats=stats,
+        )
+        # Remember whether the text actually needed more than one line: an
+        # auto-sized box is exactly as wide as its text, so if PowerPoint lays
+        # the text out a hair wider it would re-wrap. Renderers use this flag
+        # to switch such boxes to `wrap="none"`.
+        el.meta["wrapped"] = stats.get("wrapped", False)
         return Size(size.w + pad.horizontal, size.h + pad.vertical)
 
     def _measure_list(self, el, avail_w):

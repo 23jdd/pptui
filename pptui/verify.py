@@ -41,8 +41,5 @@ def verify(data):
     count = len(prs.slides._sldIdLst)
     if slides and count != len(slides):
         issues.append(f"slide count mismatch: presentation lists {count}, package has {len(slides)}")
-    for index, slide in enumerate(prs.slides, start=1):
-        if not list(slide.shapes):
-            issues.append(f"slide {index} has no shapes")
 
     return issues

@@ -6,7 +6,7 @@ from lxml import etree
 
 from .errors import DslError
 
-SCHEMA_PATH = Path(__file__).resolve().parent.parent / "schema" / "pptui.xsd"
+SCHEMA_PATH = Path(__file__).resolve().parent / "schema" / "pptui.xsd"
 _cache = {"schema": None}
 
 
@@ -29,7 +29,7 @@ def validate_source(source):
     messages = []
     for error in schema.error_log:
         messages.append(f"  line {error.line}: {error.message}")
-    raise DslError("XML does not match schema/pptui.xsd:\n" + "\n".join(messages), source=str(source))
+    raise DslError("XML does not match the pptui schema:\n" + "\n".join(messages), source=str(source))
 
 
 def validate_tree(root):
@@ -39,4 +39,4 @@ def validate_tree(root):
     if schema.validate(document):
         return True
     messages = [f"  line {error.line}: {error.message}" for error in schema.error_log]
-    raise DslError("XML does not match schema/pptui.xsd:\n" + "\n".join(messages))
+    raise DslError("XML does not match the pptui schema:\n" + "\n".join(messages))

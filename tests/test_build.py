@@ -103,6 +103,12 @@ class BuildTests(unittest.TestCase):
             with self.assertRaises(DslError):
                 parse_deck(directory / "deck.xml")
 
+    def test_empty_slide_builds(self):
+        data = build("<Deck><Slide/></Deck>")
+        prs = Presentation(io.BytesIO(data))
+        self.assertEqual(len(prs.slides), 1)
+        self.assertEqual(len(prs.slides[0].shapes), 0)
+
     def test_text_padding_writes_frame_margins(self):
         deck = parse_deck(
             '<Deck Width="10in" Height="7.5in"><Slide><TextBlock Padding="0.25in" Text="hi"/></Slide></Deck>'
@@ -111,6 +117,32 @@ class BuildTests(unittest.TestCase):
         frame = prs.slides[0].shapes[0].text_frame
         self.assertEqual(frame.margin_left, int(0.25 * IN))
         self.assertEqual(frame.margin_top, int(0.25 * IN))
+
+    def test_auto_sized_text_never_rewraps(self):
+        deck = parse_deck(
+            """<Deck Width="13.333in" Height="7.5in"><Slide><StackPanel>
+                 <Border Background="#ff0000"><TextBlock FontSize="30" Text="PPT UI WITH XAML"/></Border>
+                 <TextBlock>Let's Go</TextBlock>
+               </StackPanel></Slide></Deck>"""
+        )
+        prs, _ = render_presentation(deck)
+        frames = [
+            shape.text_frame
+            for shape in prs.slides[0].shapes
+            if shape.has_text_frame and shape.text_frame.text
+        ]
+        self.assertEqual([frame.text for frame in frames], ["PPT UI WITH XAML", "Let's Go"])
+        for frame in frames:
+            self.assertFalse(frame.word_wrap)
+
+    def test_constrained_text_still_wraps(self):
+        deck = parse_deck(
+            """<Deck Width="10in" Height="7.5in"><Slide>
+                 <TextBlock Width="1in" Text="alpha beta gamma delta"/>
+               </Slide></Deck>"""
+        )
+        prs, _ = render_presentation(deck)
+        self.assertTrue(prs.slides[0].shapes[0].text_frame.word_wrap)
 
     def test_table_cell_padding_survives_text_rendering(self):
         deck = parse_deck(

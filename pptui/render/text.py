@@ -42,8 +42,25 @@ def write_runs(paragraph, runs):
             rPr.set("spc", str(int(round(run.spacing * 100))))
 
 
+def _should_wrap(el):
+    """Whether PowerPoint may re-flow this text.
+
+    A TextBlock that never wrapped during layout is auto-sized to its measured
+    text, so its box is exactly as wide as the text we measured. Any difference
+    between our metrics and PowerPoint's (kerning, hinting, font build) would
+    then push the last word onto a second line, even though the author never
+    asked for wrapping. Those boxes are emitted with ``wrap="none"``. Boxes that
+    layout really did wrap (explicit Width, a grid cell, ...) keep wrapping.
+    """
+    if str(el.get("TextWrapping", "Wrap")).strip().lower() == "nowrap":
+        return False
+    if el.tag == "TextBlock" and el.meta.get("wrapped") is False:
+        return False
+    return True
+
+
 def fill_frame(tf, el, ctx, alignment=None, anchor=None):
-    tf.word_wrap = str(el.get("TextWrapping", "Wrap")).lower() != "nowrap"
+    tf.word_wrap = _should_wrap(el)
     tf.auto_size = MSO_AUTO_SIZE.NONE
     tf.margin_left = Emu(el.padding.left)
     tf.margin_right = Emu(el.padding.right)
@@ -158,15 +175,16 @@ def _apply_shrink(tf, el, ctx):
 def _widest_token(el, metrics):
     best = 0
     for run in el.runs:
+        spacing = run.spacing * 12700
         buffer = ""
         for ch in run.text + " ":
             if ch.isspace() or is_cjk(ch):
                 if buffer:
-                    best = max(best, metrics.width_emu(buffer, run.family, run.size, run.bold, run.italic, ea=run.ea))
+                    best = max(best, metrics.width_emu(buffer, run.family, run.size, run.bold, run.italic, ea=run.ea) + int(spacing * len(buffer)))
                     buffer = ""
                 if ch.isspace():
                     continue
-                best = max(best, metrics.width_emu(ch, run.family, run.size, run.bold, run.italic, ea=run.ea))
+                best = max(best, metrics.width_emu(ch, run.family, run.size, run.bold, run.italic, ea=run.ea) + int(spacing))
             else:
                 buffer += ch
     return best

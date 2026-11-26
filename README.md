@@ -4,6 +4,22 @@
 
 生成端是 `python-pptx` 建结构、`lxml` 打补丁；XML 端用 `lxml` 解析和 XSD 校验。
 
+## 安装
+
+作为命令行工具装到全局（需要 Python 3.14，见 `pyproject.toml` 的 `requires-python`）：
+
+```bash
+uv tool install .
+pptui --help
+```
+
+或者在仓库里直接用虚拟环境：
+
+```bash
+uv sync
+python -m pptui --help
+```
+
 ## 快速开始
 
 ```bash
@@ -46,7 +62,7 @@ python -m pptui schema                 # 打印 XSD 路径
 
 ```xml
 <Deck xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:noNamespaceSchemaLocation="../schema/pptui.xsd">
+      xsi:noNamespaceSchemaLocation="pptui/schema/pptui.xsd">
 ```
 
 ## 布局：WPF 那一套

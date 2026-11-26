@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Deck FontFamily="Segoe UI" EastAsianFontFamily="Microsoft YaHei">
+  <Meta Title="AURORA · 2027 产品愿景" Author="Aurora Studio" Subject="产品愿景"/>
+
+  <Theme MajorFont="Segoe UI" MajorEastAsianFont="Microsoft YaHei"
+         MinorFont="Segoe UI" MinorEastAsianFont="Microsoft YaHei">
+    <Color Key="accent1" Value="#5EEAD4"/>
+    <Color Key="accent2" Value="#38BDF8"/>
+    <Color Key="accent3" Value="#A78BFA"/>
+    <Color Key="accent4" Value="#FBBF24"/>
+  </Theme>
+
+  <Styles>
+    <Style Key="eyebrow" FontSize="11" FontWeight="Bold" Foreground="@accent1" LetterSpacing="3"/>
+    <Style Key="display" FontSize="40" FontWeight="Bold" Foreground="#F2F5FF" LineHeight="54"/>
+    <Style Key="h2" FontSize="22" FontWeight="Bold" Foreground="#F2F5FF"/>
+    <Style Key="body" FontSize="14" Foreground="#8A97BC" LineHeight="23"/>
+    <Style Key="caption" FontSize="11" Foreground="#5A6B94"/>
+  </Styles>
+
+  <Slide Background="#060A16" Notes="封面：先给气质，不讲功能。AURORA 是给分析师的生成式工作台。">
+    <Canvas>
+      <Ellipse Canvas.Left="7.4in" Canvas.Top="-3.4in" Width="9in" Height="9in" Fill="#38BDF81C"/>
+      <Ellipse Canvas.Left="-2.6in" Canvas.Top="4.7in" Width="6.6in" Height="6.6in" Fill="#A78BFA16"/>
+
+      <TextBlock Canvas.Left="8.5in" Canvas.Top="2.95in" Width="6in"
+                 FontSize="200" FontWeight="Bold" Foreground="#FFFFFF0C"
+                 TextWrapping="NoWrap" AutoFit="None">2027</TextBlock>
+
+      <TextBlock Canvas.Left="0.9in" Canvas.Top="1.25in" Width="8in" Style="eyebrow">AURORA · PRODUCT VISION</TextBlock>
+      <TextBlock Canvas.Left="0.9in" Canvas.Top="1.9in" Width="8.4in"
+                 FontSize="64" FontWeight="Bold" Foreground="#F2F5FF" LineHeight="80">让数据<LineBreak/>长出自己的形状</TextBlock>
+      <TextBlock Canvas.Left="0.9in" Canvas.Top="4.75in" Width="7.6in"
+                 FontSize="17" Foreground="#8A97BC">面向分析师的生成式工作台，2027 年 Q1 开放预览。</TextBlock>
+      <TextBlock Canvas.Left="0.9in" Canvas.Top="6.55in" Width="6in" Style="caption">2026.12 · 内部预览版</TextBlock>
+    </Canvas>
+  </Slide>
+
+  <Slide Background="#060A16" Notes="一句话立论：界面应该服从意图，而不是相反。">
+    <Canvas>
+      <Ellipse Canvas.Left="7.8in" Canvas.Top="-2.2in" Width="8in" Height="8in" Fill="#5EEAD414"/>
+      <TextBlock Canvas.Left="0.55in" Canvas.Top="-0.15in" Width="2.4in"
+                 FontFamily="Cambria" FontSize="220" FontWeight="Bold" Foreground="#5EEAD426">“</TextBlock>
+      <TextBlock Canvas.Left="1.3in" Canvas.Top="2.25in" Width="10.8in"
+                 FontSize="42" FontWeight="Bold" Foreground="#F2F5FF" LineHeight="62"
+                 TextAlignment="Center">工具不该要求人<LineBreak/>先学会它的语法。</TextBlock>
+      <TextBlock Canvas.Left="1.3in" Canvas.Top="4.8in" Width="10.8in"
+                 FontSize="14" Foreground="#8A97BC" TextAlignment="Center">AURORA 的设计前提：先理解意图，再决定界面。</TextBlock>
+    </Canvas>
+  </Slide>
+
+  <Slide Background="#060A16" Notes="三根支柱：语义、血缘、协作。每张卡片一个数字。">
+    <Border Padding="0.9in">
+      <Grid>
+        <Grid.RowDefinitions>
+          <RowDefinition Height="Auto"/>
+          <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="*"/>
+          <ColumnDefinition Width="*"/>
+          <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Row="0" Grid.ColumnSpan="3" Spacing="0.1in" Margin="0 0 0 0.55in">
+          <TextBlock Style="eyebrow">PILLARS</TextBlock>
+          <TextBlock Style="display">三件事，决定体验</TextBlock>
+        </StackPanel>
+
+        <Border Grid.Row="1" Grid.Column="0" Margin="0 0 0.28in 0" Padding="0.34in"
+                Background="#FFFFFF0A" BorderBrush="#FFFFFF1A" BorderThickness="1pt" RadiusX="0.16in">
+          <Grid>
+            <Grid.RowDefinitions>
+              <RowDefinition Height="Auto"/>
+              <RowDefinition Height="*"/>
+              <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <StackPanel Grid.Row="0" Orientation="Horizontal" Spacing="0.12in">
+              <Ellipse Width="0.1in" Height="0.1in" Fill="@accent1" VerticalAlignment="Center"/>
+              <TextBlock FontSize="12" FontWeight="Bold" Foreground="@accent1" LetterSpacing="2">01</TextBlock>
+            </StackPanel>
+            <StackPanel Grid.Row="1" Spacing="0.14in" VerticalAlignment="Center">
+              <TextBlock Style="h2">即时语义</TextBlock>
+              <TextBlock Style="body">用一句话描述问题，直接得到图表与叙事，不用先建模型。</TextBlock>
+            </StackPanel>
+            <StackPanel Grid.Row="2" Spacing="0.04in">
+              <TextBlock FontFamily="Cambria" FontSize="32" FontWeight="Bold" Foreground="@accent1">3.2×</TextBlock>
+              <TextBlock Style="caption">分析速度提升</TextBlock>
+            </StackPanel>
+          </Grid>
+        </Border>
+
+        <Border Grid.Row="1" Grid.Column="1" Margin="0 0 0.28in 0" Padding="0.34in"
+                Background="#FFFFFF0A" BorderBrush="#FFFFFF1A" BorderThickness="1pt" RadiusX="0.16in">
+          <Grid>
+            <Grid.RowDefinitions>
+              <RowDefinition Height="Auto"/>
+              <RowDefinition Height="*"/>
+              <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <StackPanel Grid.Row="0" Orientation="Horizontal" Spacing="0.12in">
+              <Ellipse Width="0.1in" Height="0.1in" Fill="@accent2" VerticalAlignment="Center"/>
+              <TextBlock FontSize="12" FontWeight="Bold" Foreground="@accent2" LetterSpacing="2">02</TextBlock>
+            </StackPanel>
+            <StackPanel Grid.Row="1" Spacing="0.14in" VerticalAlignment="Center">
+              <TextBlock Style="h2">可追溯</TextBlock>
+              <TextBlock Style="body">每个结论都能回到原始数据、计算过程和当时的版本。</TextBlock>
+            </StackPanel>
+            <StackPanel Grid.Row="2" Spacing="0.04in">
+              <TextBlock FontFamily="Cambria" FontSize="32" FontWeight="Bold" Foreground="@accent2">100%</TextBlock>
+              <TextBlock Style="caption">结论可回溯</TextBlock>
+            </StackPanel>
+          </Grid>
+        </Border>
+
+        <Border Grid.Row="1" Grid.Column="2" Padding="0.34in"
+                Background="#FFFFFF0A" BorderBrush="#FFFFFF1A" BorderThickness="1pt" RadiusX="0.16in">
+          <Grid>
+            <Grid.RowDefinitions>
+              <RowDefinition Height="Auto"/>
+              <RowDefinition Height="*"/>
+              <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <StackPanel Grid.Row="0" Orientation="Horizontal" Spacing="0.12in">
+              <Ellipse Width="0.1in" Height="0.1in" Fill="@accent3" VerticalAlignment="Center"/>
+              <TextBlock FontSize="12" FontWeight="Bold" Foreground="@accent3" LetterSpacing="2">03</TextBlock>
+            </StackPanel>
+            <StackPanel Grid.Row="1" Spacing="0.14in" VerticalAlignment="Center">
+              <TextBlock Style="h2">可协作</TextBlock>
+              <TextBlock Style="body">评论、版本与发布，和文档在同一个流里，不再来回导出。</TextBlock>
+            </StackPanel>
+            <StackPanel Grid.Row="2" Spacing="0.04in">
+              <TextBlock FontFamily="Cambria" FontSize="32" FontWeight="Bold" Foreground="@accent3">24h</TextBlock>
+              <TextBlock Style="caption">评审闭环</TextBlock>
+            </StackPanel>
+          </Grid>
+        </Border>
+      </Grid>
+    </Border>
+  </Slide>
+
+  <Slide Background="#060A16" Notes="增长数据：2026 的曲线明显变陡，主要来自团队版。">
+    <Border Padding="0.9in">
+      <Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="0.92*"/>
+          <ColumnDefinition Width="1.08*"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Column="0" Margin="0 0.45in 0 0" VerticalAlignment="Center" Spacing="0.22in">
+          <TextBlock Style="eyebrow">TRACTION</TextBlock>
+          <TextBlock FontSize="38" FontWeight="Bold" Foreground="#F2F5FF" LineHeight="50">增长不是线性的</TextBlock>
+          <TextBlock Style="body" Width="4.9in">2026 年的加速几乎全部来自团队版：协作把单点工具变成了日常基础设施。</TextBlock>
+          <StackPanel Spacing="0.12in" Margin="0 0.1in 0 0">
+            <TextBlock FontSize="13" Foreground="#8A97BC">Q4 活跃团队 <Run FontWeight="Bold" Foreground="#F2F5FF">1,240</Run></TextBlock>
+            <TextBlock FontSize="13" Foreground="#8A97BC">同比 <Run FontWeight="Bold" Foreground="@accent1">+118%</Run></TextBlock>
+            <TextBlock FontSize="13" Foreground="#8A97BC">净留存 <Run FontWeight="Bold" Foreground="#F2F5FF">132%</Run></TextBlock>
+          </StackPanel>
+        </StackPanel>
+
+        <Border Grid.Column="1" Background="#F7F9FF" RadiusX="0.2in" Padding="0.32in">
+          <Chart Type="Column" Title="季度活跃团队" Legend="Bottom" FontSize="11">
+            <Category>Q1</Category>
+            <Category>Q2</Category>
+            <Category>Q3</Category>
+            <Category>Q4</Category>
+            <Series Name="2025" Color="#CBD5E1">120,180,240,300</Series>
+            <Series Name="2026" Color="#2563EB">180,260,380,520</Series>
+          </Chart>
+        </Border>
+      </Grid>
+    </Border>
+  </Slide>
+
+  <Slide Background="#060A16" Notes="路线图：四个季度，一条主线索。">
+    <Canvas>
+      <TextBlock Canvas.Left="0.9in" Canvas.Top="0.8in" Width="6in" Style="eyebrow">ROADMAP</TextBlock>
+      <TextBlock Canvas.Left="0.9in" Canvas.Top="1.25in" Width="9in"
+                 FontSize="40" FontWeight="Bold" Foreground="#F2F5FF">接下来 12 个月</TextBlock>
+      <TextBlock Canvas.Left="0.9in" Canvas.Top="2.0in" Width="9.4in" Style="body">四个季度，一条主线：从个人工具，走向团队基础设施。</TextBlock>
+
+      <Rectangle Canvas.Left="0.95in" Canvas.Top="4.77in" Width="8.6in" Height="1pt" Fill="#FFFFFF1F"/>
+
+      <Ellipse Canvas.Left="0.9in" Canvas.Top="4.71in" Width="0.13in" Height="0.13in" Fill="@accent1"/>
+      <Ellipse Canvas.Left="3.75in" Canvas.Top="4.71in" Width="0.13in" Height="0.13in" Fill="@accent2"/>
+      <Ellipse Canvas.Left="6.6in" Canvas.Top="4.71in" Width="0.13in" Height="0.13in" Fill="@accent3"/>
+      <Ellipse Canvas.Left="9.45in" Canvas.Top="4.71in" Width="0.13in" Height="0.13in" Fill="@accent4"/>
+
+      <TextBlock Canvas.Left="0.9in" Canvas.Top="4.1in" Width="2.5in" FontSize="11" FontWeight="Bold" Foreground="@accent1" LetterSpacing="2">2027 Q1</TextBlock>
+      <TextBlock Canvas.Left="0.9in" Canvas.Top="5.05in" Width="2.5in" FontSize="20" FontWeight="Bold" Foreground="#F2F5FF">开放预览</TextBlock>
+      <TextBlock Canvas.Left="0.9in" Canvas.Top="5.55in" Width="2.7in" Style="body">50 家设计伙伴，语义层 v1</TextBlock>
+
+      <TextBlock Canvas.Left="3.75in" Canvas.Top="4.1in" Width="2.5in" FontSize="11" FontWeight="Bold" Foreground="@accent2" LetterSpacing="2">2027 Q2</TextBlock>
+      <TextBlock Canvas.Left="3.75in" Canvas.Top="5.05in" Width="2.5in" FontSize="20" FontWeight="Bold" Foreground="#F2F5FF">公共 Beta</TextBlock>
+      <TextBlock Canvas.Left="3.75in" Canvas.Top="5.55in" Width="2.7in" Style="body">图表、叙事、导出全打通</TextBlock>
+
+      <TextBlock Canvas.Left="6.6in" Canvas.Top="4.1in" Width="2.5in" FontSize="11" FontWeight="Bold" Foreground="@accent3" LetterSpacing="2">2027 Q3</TextBlock>
+      <TextBlock Canvas.Left="6.6in" Canvas.Top="5.05in" Width="2.5in" FontSize="20" FontWeight="Bold" Foreground="#F2F5FF">团队空间</TextBlock>
+      <TextBlock Canvas.Left="6.6in" Canvas.Top="5.55in" Width="2.7in" Style="body">评论、版本与发布流上线</TextBlock>
+
+      <TextBlock Canvas.Left="9.45in" Canvas.Top="4.1in" Width="2.5in" FontSize="11" FontWeight="Bold" Foreground="@accent4" LetterSpacing="2">2027 Q4</TextBlock>
+      <TextBlock Canvas.Left="9.45in" Canvas.Top="5.05in" Width="2.5in" FontSize="20" FontWeight="Bold" Foreground="#F2F5FF">生态</TextBlock>
+      <TextBlock Canvas.Left="9.45in" Canvas.Top="5.55in" Width="2.7in" Style="body">插件市场与开放 API</TextBlock>
+      <TextBlock Canvas.Left="0.9in" Canvas.Top="6.65in" Width="10in" Style="caption">每季度末复核一次，未达标不进入下一阶段。</TextBlock>
+    </Canvas>
+  </Slide>
+
+  <Slide Background="#060A16" Notes="收尾：回到问题本身。">
+    <Canvas>
+      <Ellipse Canvas.Left="-2.8in" Canvas.Top="-3.2in" Width="8.4in" Height="8.4in" Fill="#38BDF81A"/>
+      <Ellipse Canvas.Left="9.6in" Canvas.Top="4.2in" Width="5.6in" Height="5.6in" Fill="#A78BFA1A"/>
+
+      <TextBlock Canvas.Left="0.9in" Canvas.Top="2.45in" Width="9in"
+                 FontSize="72" FontWeight="Bold" Foreground="#F2F5FF" LetterSpacing="2">AURORA</TextBlock>
+      <TextBlock Canvas.Left="0.9in" Canvas.Top="4.05in" Width="9in"
+                 FontSize="20" Foreground="#8A97BC">2027 · 让分析回到问题本身</TextBlock>
+      <TextBlock Canvas.Left="0.9in" Canvas.Top="6.45in" Width="9in" Style="caption">aurora.studio · hello@aurora.studio</TextBlock>
+    </Canvas>
+  </Slide>
+  <Slide>
+       <StackPanel >
+
+       </StackPanel>
+  </Slide>
+</Deck>

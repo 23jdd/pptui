@@ -45,8 +45,15 @@ def is_cjk(ch):
     return False
 
 
+#: Font size used to probe glyph advances. PIL rounds advances to whole pixels,
+#: so measuring at 64px and scaling up under-estimates widths by roughly 1%,
+#: which is enough to make PowerPoint break a word that we measured as fitting.
+#: Probing large keeps the error well below 0.1%.
+PROBE_SIZE = 512
+
+
 class FontMetrics:
-    def __init__(self, fonts_dir=None, probe_size=64):
+    def __init__(self, fonts_dir=None, probe_size=PROBE_SIZE):
         self.fonts_dir = fonts_dir or FONTS_DIR
         self.probe_size = probe_size
         self._fonts = {}

@@ -2,11 +2,11 @@
 
 上手教程见 [tutorial.md](tutorial.md)；这份文档是逐项查属性用的。
 
-结构定义在 [`schema/pptui.xsd`](../schema/pptui.xsd)，编辑器里给根节点加一行即可获得补全和实时校验（路径按你的文件位置调整）：
+结构定义在 [`pptui/schema/pptui.xsd`](../pptui/schema/pptui.xsd)，编辑器里给根节点加一行即可获得补全和实时校验（路径按你的文件位置调整）：
 
 ```xml
 <Deck xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:noNamespaceSchemaLocation="../schema/pptui.xsd">
+      xsi:noNamespaceSchemaLocation="../pptui/schema/pptui.xsd">
 ```
 
 一份 deck 就是一个 XML 文件。根节点 `<Deck>`，下面是元数据、主题、样式和若干 `<Slide>`。
@@ -188,13 +188,15 @@ deck.xml:12: Padding is not supported on <Grid>; wrap it in a <Border> or use Ma
 | `FontStyle` | `Italic` |
 | `Foreground` | 文字颜色 |
 | `TextAlignment` | `Left|Center|Right|Justify` |
-| `TextWrapping` | `Wrap`（默认）/ `NoWrap` |
+| `TextWrapping` | `Wrap`（默认）/ `NoWrap`。自动宽度（未写 `Width`）且一行放得下时不会换行：这类文本框按测量宽度输出，PowerPoint 的字体度量略有差异就会把最后一个词挤到第二行，所以渲染时写 `wrap="none"`。写了 `Width`、或布局阶段确实折过行的元素仍然按 `Wrap` 输出 |
 | `LineHeight` | 固定行距，pt |
 | `LetterSpacing` | 字间距，pt |
 | `AutoFit` | `Shrink`：溢出时写 `a:normAutofit` 缩字号 |
 | `VerticalContentAlignment` | `Top|Center|Bottom` |
 
-空白处理：连续空白折叠成一个空格，块首尾的空格会去掉；需要保留时加 `xml:space="preserve"`。
+空白处理：默认折叠连续空白并去掉块首尾空格；`xml:space="preserve"` 保留原样。该属性沿 XML 树继承，可以写在 `Deck`、`Slide` 或任意元素上，子元素可用 `xml:space="default"` 局部恢复折叠。
+
+`xml:space` 只影响字符数据，不影响 `Margin`、`Padding`、字距和换行。`preserve` 模式下 XML 缩进也可能被当成文本，但以换行开头/结尾的纯排版空白会被去掉。
 
 ## 列表
 

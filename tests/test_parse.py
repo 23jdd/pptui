@@ -91,8 +91,26 @@ class ParseTests(unittest.TestCase):
         self.assertEqual("".join(run.text for run in runs), "plain bold tail")
         self.assertTrue(runs[1].bold)
 
+    def test_xml_space_preserve_inherits(self):
+        deck = parse_deck('<Deck><Slide xml:space="preserve"><TextBlock>a  b</TextBlock></Slide></Deck>')
+        self.assertEqual(deck.slides[0].children[0].runs[0].text, "a  b")
+
+    def test_xml_space_default_collapses(self):
+        deck = parse_deck('<Deck><Slide xml:space="default"><TextBlock>a  b</TextBlock></Slide></Deck>')
+        self.assertEqual(deck.slides[0].children[0].runs[0].text, "a b")
+
+    def test_xml_space_preserve_drops_layout_indent(self):
+        deck = parse_deck('<Deck><Slide xml:space="preserve"><TextBlock>\n   a  b\n </TextBlock></Slide></Deck>')
+        self.assertEqual(deck.slides[0].children[0].runs[0].text, "a  b")
+
+    def test_xml_space_local_override(self):
+        deck = parse_deck(
+            '<Deck xml:space="preserve"><Slide><TextBlock xml:space="default">a  b</TextBlock></Slide></Deck>'
+        )
+        self.assertEqual(deck.slides[0].children[0].runs[0].text, "a b")
+
     def test_schema_accepts_examples(self):
-        for name in ("hello.xml", "tutorial.xml", "report.xml"):
+        for name in ("hello.xml", "tutorial.xml", "example.xml", "report.xml"):
             self.assertTrue(validate_source(ROOT / "examples" / name))
 
     def test_schema_rejects_unknown_attribute(self):
@@ -133,7 +151,7 @@ class ParseTests(unittest.TestCase):
     def test_schema_declares_every_visual_tag(self):
         from pptui.parse import VISUAL_TAGS
 
-        text = (ROOT / "schema" / "pptui.xsd").read_text(encoding="utf-8")
+        text = (ROOT / "pptui" / "schema" / "pptui.xsd").read_text(encoding="utf-8")
         for tag in VISUAL_TAGS:
             self.assertIn(f'<xs:element name="{tag}">', text)
 

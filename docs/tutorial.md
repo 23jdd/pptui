@@ -304,7 +304,18 @@ hello.xml:12: Padding is not supported on <Grid>; wrap it in a <Border> or use M
 
 `<Run>` 继承 `TextBlock` 的字体、字号、颜色，只覆盖自己写的属性。
 
-空白处理：连续空白折叠成一个空格，块首尾空格去掉；需要保留时加 `xml:space="preserve"`。
+空白处理：默认（`xml:space="default"`）会把连续空白折叠成一个空格，并去掉块首尾的空格；需要保留空格时写 `xml:space="preserve"`。
+
+`xml:space` 是标准 XML 属性，可以写在 `Deck`、`Slide` 或任意元素上，**沿 XML 树向下继承**：
+
+```xml
+<Slide xml:space="preserve">
+  <TextBlock>1   2    3</TextBlock>      <!-- 中间的空格原样保留 -->
+  <TextBlock xml:space="default">1   2</TextBlock>  <!-- 这里恢复折叠 -->
+</Slide>
+```
+
+注意它只管字符数据，不影响 `Margin`、`Padding`、字距和换行。另外在 `preserve` 下，XML 里用来排版的缩进也可能变成文本——实现里会丢掉“以换行开头/结尾的纯排版空白”，所以正常多行书写是安全的；真正的空格请写在文字同一行。
 
 ### 5.3 放不下怎么办
 
@@ -563,11 +574,11 @@ deck.xml:14: unsupported chart type 'sankey' <Chart>
 
 ## 13. 校验与编辑器
 
-XSD 在 [schema/pptui.xsd](../schema/pptui.xsd)。给根节点加一行：
+XSD 在 [pptui/schema/pptui.xsd](../pptui/schema/pptui.xsd)。给根节点加一行：
 
 ```xml
 <Deck xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:noNamespaceSchemaLocation="../schema/pptui.xsd">
+      xsi:noNamespaceSchemaLocation="../pptui/schema/pptui.xsd">
 ```
 
 PyCharm 内置支持；VS Code 需要装 XML 扩展（如 Red Hat XML）才会读取 XSD。编辑器会补全属性名、标出未知元素和属性。命令行侧：

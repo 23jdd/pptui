@@ -49,6 +49,11 @@ class WrapTests(unittest.TestCase):
         size = measure_runs(runs, INF, self.metrics, wrap=True, line_height_pt=30)
         self.assertEqual(size.h, 2 * 30 * 12700)
 
+    def test_letter_spacing_adds_width(self):
+        runs = [RunSpec(text="AB", size=10.0, spacing=2.0)]
+        size = measure_runs(runs, INF, self.metrics, wrap=False)
+        self.assertEqual(size.w, 2 * 10000 + 2 * 2 * 12700)
+
     def test_tokens_types(self):
         tokens = tokens_for([RunSpec(text="A中 B", size=10.0)], self.metrics)
         kinds = [token.kind for token in tokens]

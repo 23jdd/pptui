@@ -147,19 +147,33 @@ def _color(text, ctx):
         raise DslError(str(exc)) from exc
 
 
+def _preserve(node):
+    while node is not None:
+        value = node.get(XML_SPACE)
+        if value is not None:
+            return str(value).strip().lower() == "preserve"
+        node = node.getparent()
+    return False
+
+
 def _collect_runs(xml_el, base_props, ctx):
-    preserve = xml_el.get(XML_SPACE) == "preserve"
+    block_preserve = _preserve(xml_el)
     segments = []
 
-    def push(text, props, is_break=False):
+    def push(text, props, is_break=False, owner=None):
         if text is None:
             return
-        if is_break or preserve:
+        preserve = _preserve(owner) if owner is not None else block_preserve
+        if is_break:
+            cleaned = "\n"
+        elif preserve:
             cleaned = text
+            if "\n" in cleaned and (cleaned.startswith(("\n", "\r")) or cleaned.endswith(("\n", "\r"))):
+                cleaned = cleaned.strip()
         else:
             cleaned = re.sub(r"\s+", " ", text)
         if cleaned or is_break:
-            segments.append([cleaned, props, is_break])
+            segments.append([cleaned, props, is_break, preserve])
 
     text_attr = xml_el.get("Text")
     if text_attr is not None:
@@ -170,7 +184,7 @@ def _collect_runs(xml_el, base_props, ctx):
         if tag == "Run":
             props = dict(base_props)
             props.update({key.lower(): value for key, value in _attrs(child).items()})
-            push(child.text, props)
+            push(child.text, props, owner=child)
         elif tag == "LineBreak":
             push("\n", base_props, True)
         else:
@@ -178,15 +192,15 @@ def _collect_runs(xml_el, base_props, ctx):
         push(child.tail, base_props)
 
     for segment in segments:
-        if not segment[2]:
+        if not segment[2] and not segment[3]:
             segment[0] = segment[0].lstrip()
             break
     for segment in reversed(segments):
-        if not segment[2]:
+        if not segment[2] and not segment[3]:
             segment[0] = segment[0].rstrip()
             break
 
-    runs = [make_run(text, props, ctx) for text, props, _ in segments if text]
+    runs = [make_run(text, props, ctx) for text, props, _, _ in segments if text]
     return runs
 
 

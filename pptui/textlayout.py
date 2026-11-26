@@ -43,15 +43,22 @@ def tokens_for(runs, metrics):
 
 def _token(text, run, metrics, kind):
     width = metrics.width_emu(text, run.family, run.size, run.bold, run.italic, ea=run.ea)
+    width += _spacing_emu(run) * len(text)
     return Token(text, run, width, kind)
+
+
+def _spacing_emu(run):
+    return int(round(run.spacing * 12700))
 
 
 def _split_token(token, max_w, metrics):
     pieces = []
     buffer = ""
     width = 0
+    spacing = _spacing_emu(token.run)
     for ch in token.text:
         w = metrics.width_emu(ch, token.run.family, token.run.size, token.run.bold, token.run.italic, ea=token.run.ea)
+        w += spacing
         if buffer and width + w > max_w:
             pieces.append(Token(buffer, token.run, width, token.kind))
             buffer = ""
@@ -100,18 +107,23 @@ def line_height_emu(line, base_size, line_height_pt=None):
     return int(round(size * 1.2 * 12700))
 
 
-def measure_runs(runs, avail_w, metrics, wrap=True, line_height_pt=None, base_size=18.0):
+def measure_runs(runs, avail_w, metrics, wrap=True, line_height_pt=None, base_size=18.0, stats=None):
     paragraphs = split_runs(runs)
     total_h = 0
     max_w = 0
+    wrapped = False
     for paragraph in paragraphs:
         tokens = tokens_for(paragraph, metrics)
         if wrap and avail_w < INF:
             lines = wrap_tokens(tokens, max(1, avail_w), metrics) if tokens else [[]]
         else:
             lines = [tokens] if tokens else [[]]
+        if len(lines) > 1:
+            wrapped = True
         for line in lines:
             line_w = sum(token.width for token in line)
             max_w = max(max_w, line_w)
             total_h += line_height_emu(line, base_size, line_height_pt)
+    if stats is not None:
+        stats["wrapped"] = wrapped
     return Size(max_w, total_h)

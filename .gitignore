@@ -3,6 +3,9 @@
 __pycache__/
 *.pyc
 out/
+dist/
+build/
+*.egg-info/
 *.pptx
 !pptui/templates/*.pptx
 internal_docs
